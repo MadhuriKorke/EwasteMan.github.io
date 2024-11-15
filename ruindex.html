@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="E-Waste Management - Reduce, Reuse, Recycle">
+    <meta name="keywords" content="e-waste, recycle, electronics, environment">
+    <title>E-Waste Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #2e3a59;
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .search-bar input {
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        .search-bar button {
+            padding: 5px 10px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #home {
+            background-color: #1e2a47;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta-btn {
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .cta-btn:hover {
+            background-color: #ff4c39;
+        }
+
+       /* Carousel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    animation: scroll 90s infinite; /* Total duration adjusted for pauses */
+    width: 300%; /* Display 3 images */
+}
+
+.carousel-images img {
+    width: 33.3333%; /* Each image takes up 1/3 of the width */
+    object-fit: cover;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.carousel-dots .dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.carousel-dots .dot.active {
+    background-color: #ff6f61;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    8.33% { transform: translateX(0); } /* Pause on first image */
+    41.67% { transform: translateX(-33.3333%); }
+    50% { transform: translateX(-33.3333%); } /* Pause on second image */
+    83.33% { transform: translateX(-66.6666%); }
+    91.67% { transform: translateX(-66.6666%); } /* Pause on third image */
+    100% { transform: translateX(0); } /* Restart at the first image */
+}
+
+/* Optional: Dots animation to indicate active image */
+.carousel-images {
+    animation: scroll 90s infinite; /* Total duration adjusted for pauses */
+    width: 300%;
+    position: relative;
+}
+
+.carousel-images:after {
+    content: "";
+    position: absolute;
+    top: -9999px; /* Hide overflow */
+}
+
+.carousel-images:after {
+    animation: updateDots 90s infinite;
+}
+
+@keyframes updateDots {
+    0%, 8.33% { /* Dot 1 active */ }
+    41.67%, 50% { /* Dot 2 active */ }
+    83.33%, 91.67% { /* Dot 3 active */ }
+    100% { /* Reset dots */ }
+}
+
+/* CSS for active dots to show the currently active slide */
+.carousel-dots .dot.active {
+    background-color: #ff6f61;
+}
+
+
+section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.service-boxes, .activities-list {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.service-box, .activity-box {
+    background-color: #fff;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: left;
+}
+
+.service-box img, .activity-box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.service-box h3, .activity-box h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+#activities {
+    text-align: center;
+    padding: 20px;
+}
+
+.activities-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.activity-box {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.activity-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.authors {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.activity-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    border-top: 1px solid #eee;
+    margin-top: auto;
+}
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.icon span {
+    font-size: 16px;
+    color: #333;
+}
+
+
+#subscribe {
+    background-color: #f8f8f8;
+}
+
+#subscribe input {
+    padding: 10px;
+    width: 300px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+}
+
+#subscribe button {
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#subscribe button:hover {
+    background-color: #ff4c39;
+}
+
+footer {
+    background-color: #2e3a59;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+    color: white;
+    margin: 0
+} 
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.about-text, .about-image {
+    flex: 1;
+    padding: 20px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive layout: Stack the text and image on small screens */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-text, .about-image {
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>E-Waste Management</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button>Search</button>
+            </div>
+        </nav>
+    </header>
+
+     <!-- Home Section with Carousel -->
+     <section id="home">
+        <div class="hero">
+            <h2>Protect the Environment, Recycle E-Waste</h2>
+            <p>We help reduce, reuse, and recycle electronic waste to protect our planet.</p>
+            <br>
+            <a href="#contact" class="cta-btn">Contact Us</a>
+        </div>
+
+        <!-- Image Carousel -->
+        <div class="carousel-container" >
+            <div class="carousel-images">
+                <img src="Home1.jpg" alt="E-Waste Image 1">
+                <img src="Home2.jpg" alt="E-Waste Image 2">
+                <img src="Home3.jpg" alt="E-Waste Image 3">
+            </div>
+            <div class="carousel-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Us Section -->
+<section id="about">
+    <h2>About Us</h2>
+    <br>
+    <div class="about-content">
+        <div class="about-text">
+            <p>We are dedicated to environmentally responsible e-waste management. Our organization focuses on reducing the negative impact of electronic waste through sustainable practices. Our team is committed to making a difference by providing safe e-waste collection, efficient recycling, and community outreach.</p><br>
+            <p>Energy Conservation: Recycling e-waste minimizes the need for natural resource extraction, helping conserve energy and reduce pollution. </p><br>
+            <p>Environmental Protection: By keeping e-waste out of landfills, we prevent hazardous chemicals from polluting soil and water, supporting a cleaner, greener planet.</p><br>
+            <p>Health and Safety: Proper disposal of e-waste protects human health, reducing exposure to toxic substances that can result from improper disposal methods.</p><br>
+            <p>Innovation: Our recycling processes recover valuable materials, which can be reused in new products, fostering innovation in the tech and manufacturing sectors.</p><br>
+        </div>
+        <div class="about-image">
+            <img src="ecofriendly.jpg" alt="About Us Image">
+        </div>
+    </div>
+</section>
+
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service-boxes">
+            <div class="service-box">
+                 <img src="collection.jpg" alt="E-Waste Collection" class="service-img">
+                <h3>Collection</h3>
+                <p>We provide a door-to-door e-waste collection service for businesses and individuals. Our team ensures that e-waste is collected safely and properly from various locations.</p>
+            </div>
+            <div class="service-box">
+                <img src="What-is-E-Waste-Recycling.webp" alt="E-Waste Recycling" class="service-img">
+                <h3>Recycling</h3>
+                <p>Our state-of-the-art recycling facilities process e-waste, breaking down electronic components into reusable materials, thus reducing harmful environmental impact.</p>
+            </div>
+            <div class="service-box">
+                <img src="awareness.jpg" alt="Awareness Campaigns" class="service-img">
+                <h3>Awareness Campaigns</h3>
+                <p>We actively engage in public outreach programs to educate communities on the importance of recycling e-waste and the dangers of improper disposal.</p>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+
+    <!-- Activities Section -->
+<section id="activities">
+    <h2>Our Activities</h2>
+    <div class="activities-list">
+        <div class="activity-box">
+            <img src="clean.jpg" alt="E-Waste Cleanup Drive" class="activity-img">
+            <div class="activity-content">
+                <span class="authors">Rupali,Aakanksha</span>
+                <h3>Community Clean-Up Drives</h3>
+                <p>We organize local e-waste clean-up drives in various communities, providing free collection of unwanted electronics and raising awareness about e-waste management.</p>
+                <div class="activity-footer">
+                    <span class="icon">👁️ 45</span>
+                    <span class="icon">❤️ 30</span>
+                </div>
+            </div>
+        </div>
+        <div class="activity-box">
+            <img src="seminar.jpg" alt="E-Waste Workshops" class="activity-img">
+            <div class="activity-content">
+                <span class="authors">Rupali,Aakanksha</span>
+                <h3>Workshops and Seminars</h3>
+                <p>Our workshops focus on educating people on how to properly dispose of their electronics, the dangers of e-waste, and the benefits of recycling.</p>
+                <div class="activity-footer">
+                    <span class="icon">👁️ 60</span>
+                    <span class="icon">❤️ 40</span>
+                </div>
+            </div>
+        </div>
+        <div class="activity-box">
+            <img src="partnership.webp" alt="Corporate Partnerships" class="activity-img">
+            <div class="activity-content">
+                <span class="authors">Rupali,Aakanksha</span>
+                <h3>Corporate Partnerships</h3>
+                <p>We partner with businesses to create e-waste recycling programs, manage their waste responsibly, and ensure compliance with environmental regulations.</p>
+                <div class="activity-footer">
+                    <span class="icon">👁️ 80</span>
+                    <span class="icon">❤️ 50</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Subscribe Section -->
+    <section id="subscribe">
+        <h2>Subscribe for Updates</h2>
+        <form action="#" method="post">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <p>Location: PCCoE-
+                Pimpri-Chinchwad College of Engineering,  411 044</p>
+            <p>Email: rupali.korke22@pccoepune.org</p>
+            <p>Phone: +123 456 7890</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 E-Waste Management. All rights reserved.</p>
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+</body>
+
+</html>
